@@ -15,7 +15,7 @@ if (menuButton && navigation) {
     });
 
     navigation.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
+        if (event.key === "Escape" && phoneLayout.matches) {
             setMenuOpen(false);
             menuButton.focus();
         }
