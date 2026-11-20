@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joshua Guambana | Contact</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
 </head>
 <body>
     <header>
         <p>Joshua Guambana</p>
-        <nav aria-label="Main navigation">
+        <div class="header-controls">
+            <button type="button" id="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-navigation"><span aria-hidden="true">&#9776;</span> Menu</button>
+            <button type="button" id="theme-toggle">Switch to light theme</button>
+        </div>
+        <nav id="main-navigation" aria-label="Main navigation">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Me</a></li>

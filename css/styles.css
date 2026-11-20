@@ -7,6 +7,22 @@
     --muted: #bec9d6;
     --accent: #89c4ff;
     --border: #3c4c60;
+    --current-background: #203b57;
+    --link-hover: #c7e3ff;
+    --focus: #ffd479;
+}
+
+:root[data-theme="light"] {
+    color-scheme: light;
+    --background: #f4f7fb;
+    --surface: #ffffff;
+    --text: #172333;
+    --muted: #435369;
+    --accent: #175ca1;
+    --border: #8595a8;
+    --current-background: #dcecff;
+    --link-hover: #103e70;
+    --focus: #824000;
 }
 
 * {
@@ -73,7 +89,7 @@ nav a:hover {
 }
 
 nav a[aria-current="page"] {
-    background: #203b57;
+    background: var(--current-background);
     color: var(--text);
     text-decoration: underline;
     text-underline-offset: 0.35em;
@@ -85,13 +101,13 @@ a {
 }
 
 a:hover {
-    color: #c7e3ff;
+    color: var(--link-hover);
 }
 
 /* Keep focus visible for keyboard users, including future controls. */
 :focus,
 :focus-visible {
-    outline: 3px solid #ffd479;
+    outline: 3px solid var(--focus);
     outline-offset: 4px;
 }
 
@@ -229,7 +245,35 @@ footer p {
     font-size: 0.95rem;
 }
 
-/* Phone layouts keep navigation visible and stack skill cards. */
+.header-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    min-width: 0;
+}
+
+button {
+    max-width: 100%;
+    min-height: 44px;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid var(--accent);
+    border-radius: 0.3rem;
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--current-background);
+}
+
+#menu-toggle {
+    display: none;
+}
+
+/* Phone layouts collapse navigation and stack skill cards. */
 @media (max-width: 600px) {
     body > header,
     main,
@@ -244,6 +288,23 @@ footer p {
 
     nav a {
         padding: 0.65rem 0.75rem;
+    }
+
+    #menu-toggle {
+        display: inline-block;
+    }
+
+    #main-navigation {
+        display: none;
+        width: 100%;
+    }
+
+    #main-navigation.is-open {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
     }
 
     main {
